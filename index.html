@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102844">
+<title>Happy International Men's Day, Daddy</title>
+<style>
+:root{
+  --navy:#102844;--navy2:#1c3d60;--gold:#c5a15b;--gold2:#e3c98c;
+  --cream:#fbf7ed;--ink:#172b40;--muted:#657184;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+button{font:inherit}
+.hero{
+  min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:30px 16px 44px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 15%,#fffefa 0,#f1eadb 62%,#d9dfE5 100%);
+}
+.hero:before,.hero:after{content:"";position:absolute;width:250px;height:250px;border:1px solid #c5a15b55;border-radius:50%;pointer-events:none}
+.hero:before{top:-145px;left:-95px}.hero:after{right:-130px;bottom:-150px;width:330px;height:330px}
+.card{width:min(100%,520px);position:relative;text-align:center;padding:27px 22px 25px;background:linear-gradient(155deg,#fffdf8,#f5efdf);border:1px solid #c5a15b;box-shadow:0 18px 55px #10284420}
+.card:before{content:"";position:absolute;inset:8px;border:1px solid #c5a15b80;pointer-events:none}
+.topline{font:10px/1.4 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8b7447}
+h1{margin:15px 0 2px;color:var(--navy);font-size:clamp(2.2rem,9vw,4rem);line-height:.98;font-weight:normal}
+h1 .script{display:block;color:#a47d36;font-style:italic;font-size:1.22em;line-height:1.08}
+.dayline{margin:5px 0 17px;font:600 clamp(.83rem,3vw,1.05rem) Arial,sans-serif;letter-spacing:.18em;color:var(--navy2)}
+.ornament{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--gold);margin:7px auto 16px;font-size:18px}
+.ornament:before,.ornament:after{content:"";height:1px;width:60px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ornament:after{transform:scaleX(-1)}
+.photo-frame{position:relative;margin:0 auto;width:min(100%,390px);padding:9px;background:#fff;border:1px solid #c5a15b;box-shadow:0 10px 25px #10284424}
+.photo-frame:before{content:"";position:absolute;inset:4px;border:1px solid #d7c28d;pointer-events:none;z-index:1}
+.photo-frame img{display:block;width:100%;height:clamp(220px,58vw,330px);object-fit:cover;object-position:center 38%}
+.caption{font-size:1.08rem;color:var(--navy);font-style:italic;margin:15px 0 2px}
+.subcaption{font:10px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8b7447;margin:0 0 18px}
+.envelope-wrap{width:min(290px,78vw);height:174px;margin:12px auto 12px;position:relative;perspective:900px;cursor:pointer;filter:drop-shadow(0 12px 12px #10284425)}
+.letter-peek{position:absolute;left:8%;right:8%;bottom:7px;height:145px;background:#fffdf7;border:1px solid #d9cba8;display:flex;align-items:center;justify-content:center;color:var(--navy);font-style:italic;font-size:1.05rem;transition:transform .8s ease;z-index:1}
+.envelope{position:absolute;inset:0;background:var(--navy2);z-index:2;border:1px solid #b38e4d}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#34577b,#173452);clip-path:polygon(0 0,50% 58%,100% 0);z-index:4;transform-origin:top;transition:transform .85s ease}
+.envelope:after{content:"";position:absolute;inset:0;background:#173452;clip-path:polygon(0 0,50% 58%,0 100%);z-index:3}
+.envelope-side{position:absolute;inset:0;background:#23496d;clip-path:polygon(100% 0,100% 100%,50% 58%);z-index:3}
+.envelope-bottom{position:absolute;inset:0;background:#294f73;clip-path:polygon(0 100%,50% 54%,100% 100%);z-index:5}
+.seal{position:absolute;z-index:6;left:50%;top:56%;transform:translate(-50%,-50%);width:49px;height:49px;border-radius:50%;display:grid;place-items:center;color:var(--navy);font-size:23px;background:radial-gradient(circle at 35% 28%,#fff1c5,#c49b4c 72%);border:1px solid #f0d99c;box-shadow:0 3px 8px #06182c55}
+.open .envelope:before{transform:rotateX(180deg);z-index:1}
+.open .letter-peek{transform:translateY(-82px)}
+.open .seal{opacity:0;transition:opacity .25s}
+.tap{font:10px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#786747;margin:6px 0 0}
+main{display:none}.opened main{display:block}
+.section{max-width:960px;margin:auto;padding:68px 20px}
+.kicker{font:10px Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#94763e}
+h2{font-size:clamp(2rem,6vw,3rem);font-weight:normal;color:var(--navy);margin:12px 0 18px}
+.intro{max-width:650px;margin:auto;font-size:1.08rem;line-height:1.85;color:#566276;text-align:center}
+.memories{background:#f0eadc}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.memory{background:#fff;padding:9px 9px 31px;border:1px solid #e4d8bc;box-shadow:0 8px 22px #10284412}
+.memory:nth-child(2){transform:rotate(1.2deg)}.memory:nth-child(3){transform:rotate(-1deg)}
+.memory img{width:100%;height:220px;object-fit:cover;display:block}
+.memory p{text-align:center;margin:10px 0 0;color:#6b5a40;font-size:.93rem;font-style:italic}
+.letter-section{background:#e8edf1;padding:68px 18px}
+.letter{max-width:700px;margin:auto;padding:clamp(26px,6vw,54px);background:#fffdf7;border:1px solid #d5c18e;box-shadow:0 12px 35px #10284413;position:relative}
+.letter:before{content:"";position:absolute;inset:9px;border:1px solid #e1d3ae;pointer-events:none}
+.letter>*{position:relative}
+.letter p{font-size:1.05rem;line-height:1.9;color:#38485a}
+.salute{color:var(--navy);font-style:italic;font-size:1.3rem}
+.signature{font-style:italic;color:#9a7435;font-size:1.2rem;margin-top:25px}
+.music-section{text-align:center;padding:60px 18px 75px}
+.player{max-width:420px;margin:25px auto 0;padding:22px;background:#fff;border:1px solid #d8c797;box-shadow:0 8px 25px #10284412}
+.disc{width:105px;height:105px;margin:0 auto 15px;border-radius:50%;background:repeating-radial-gradient(circle,#111c2a 0 2px,#243b53 3px 5px);display:grid;place-items:center}
+.disc span{width:35px;height:35px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--navy);font-size:20px}
+.player button{border:0;background:var(--navy);color:#fff;padding:11px 22px;border-radius:30px;cursor:pointer}
+.player-note{font:10px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#7d715d;margin:12px 0 0}
+footer{background:var(--navy);color:#f8f2e4;text-align:center;padding:48px 18px}
+footer h2{color:var(--gold2);margin-bottom:8px}footer p{color:#e5dfd1;font-style:italic}
+.music-toggle{position:fixed;right:14px;top:14px;z-index:9;display:none;border:1px solid var(--gold);border-radius:24px;background:var(--navy);color:#fff;padding:9px 14px;font:12px Arial,sans-serif}
+@media(max-width:560px){.card{padding:23px 16px}.gallery{gap:10px}.memory img{height:175px}.section{padding:55px 16px}.hero{padding:20px 12px}.photo-frame img{height:250px}}
+</style>
+</head>
+<body>
+<button class="music-toggle" id="musicToggle">Ⅱ Pause music</button>
+<section class="hero" id="hero">
+  <div class="card">
+    <div class="topline">A little gift, made with love</div>
+    <h1>Happy <span class="script">International</span></h1>
+    <div class="dayline">MEN'S DAY</div>
+    <div class="ornament">✦ ♥ ✦</div>
+    <div class="photo-frame">
+      <img src="assets/daddy-photo-1.jpeg" alt="A treasured graduation photograph of Daddy and his daughter">
+    </div>
+    <p class="caption">To my wonderful Daddy</p>
+    <p class="subcaption">Some gifts aren't expensive, just meaningful</p>
+    <div class="envelope-wrap" id="envelope" role="button" tabindex="0" aria-label="Open your letter">
+      <div class="letter-peek">A letter from your Tomitomi ♥</div>
+      <div class="envelope"><div class="envelope-side"></div><div class="envelope-bottom"></div><div class="seal">♥</div></div>
+    </div>
+    <div class="tap" id="hint">Tap the envelope to open your surprise</div>
+  </div>
+</section>
+<main id="content">
+  <section class="section">
+    <div class="kicker" style="text-align:center">Today is all about you</div>
+    <h2 style="text-align:center">Happy International Men's Day, Daddy!</h2>
+    <p class="intro">A few memories, a little music, and a whole lot of love. Thank you for being you.</p>
+  </section>
+  <section class="memories">
+    <div class="section">
+      <div class="kicker" style="text-align:center">Little moments, big memories</div>
+      <h2 style="text-align:center">My favourite memories</h2>
+      <div class="gallery">
+        <div class="memory"><img src="assets/daddy-photo-1.jpeg" alt="Graduation day together"><p>A day I'll always treasure</p></div>
+        <div class="memory"><img src="assets/daddy-photo-2.jpeg" alt="Daddy in traditional attire"><p>My forever role model</p></div>
+        <div class="memory"><img src="assets/daddy-photo-3.jpeg" alt="Daddy in a smart outfit"><p>Always looking sharp</p></div>
+        <div class="memory"><img src="assets/daddy-photo-4.jpeg" alt="Another special picture of Daddy"><p>Memories with you</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="letter-section">
+    <div class="letter">
+      <div class="kicker">A letter from your Tomitomi</div>
+      <h2>Dear Daddy,</h2>
+      <p class="salute">Thank you for being mine.</p>
+      <p>Thank you for taking care of me and for always being there for me.</p>
+      <p>Even when you are angry, you still love me properly. 😂❤️</p>
+      <p>I pray that mercy and favour will continue to follow you. May God bless you, protect you and give you countless reasons to smile.</p>
+      <p>Thank you for being YOU, Daddy.</p>
+      <p>I still remember the times you called me <em>Tomitomi</em>. Those little memories will always mean so much to me.</p>
+      <p><strong>Ẹ ṣé, Daddy. Thank you for everything.</strong></p>
+      <p><strong>Happy International Men's Day!</strong></p>
+      <div class="signature">Forever your Tomitomi. ♥</div>
+    </div>
+  </section>
+  <section class="music-section">
+    <div class="kicker">A little soundtrack for you</div>
+    <h2>Your song, Daddy</h2>
+    <p class="intro">Tap play and enjoy this little surprise.</p>
+    <div class="player">
+      <div class="disc"><span>♪</span></div>
+      <button id="playButton">▶ Play music</button>
+      <p class="player-note">A song, chosen with love</p>
+    </div>
+  </section>
+  <footer>
+    <div class="kicker" style="color:#d8bd7b">With all my love</div>
+    <h2>Thank you for being you, Daddy.</h2>
+    <p>Happy International Men's Day</p>
+    <p>Forever your Tomitomi. ♥</p>
+  </footer>
+</main>
+<audio id="bgMusic" src="assets/background-music.mp3" preload="auto" loop></audio>
+<script>
+const envelope=document.getElementById('envelope');
+const audio=document.getElementById('bgMusic');
+const toggle=document.getElementById('musicToggle');
+const playButton=document.getElementById('playButton');
+let opened=false;
+async function playMusic(){
+  try{await audio.play();toggle.textContent='Ⅱ Pause music';playButton.textContent='Ⅱ Pause music';}
+  catch(e){toggle.textContent='▶ Play music';playButton.textContent='▶ Play music';}
+}
+function pauseMusic(){audio.pause();toggle.textContent='▶ Play music';playButton.textContent='▶ Play music';}
+async function openSurprise(){
+  if(opened)return;
+  opened=true;
+  envelope.classList.add('open');
+  document.body.classList.add('opened');
+  document.getElementById('hint').textContent='Your letter is waiting below ♥';
+  toggle.style.display='block';
+  await playMusic();
+  setTimeout(()=>document.getElementById('content').scrollIntoView({behavior:'smooth'}),850);
+}
+envelope.addEventListener('click',openSurprise);
+envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSurprise();}});
+toggle.addEventListener('click',()=>audio.paused?playMusic():pauseMusic());
+playButton.addEventListener('click',()=>audio.paused?playMusic():pauseMusic());
+audio.addEventListener('play',()=>{toggle.textContent='Ⅱ Pause music';playButton.textContent='Ⅱ Pause music';});
+audio.addEventListener('pause',()=>{toggle.textContent='▶ Play music';playButton.textContent='▶ Play music';});
+</script>
+</body>
+</html>
